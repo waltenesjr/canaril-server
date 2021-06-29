@@ -1,0 +1,48 @@
+# MEMORIA
+# url: jdbc:h2:mem:db
+# MAC
+# url: jdbc:h2:/Users/######/Documents/maile
+# WINDOWS
+# url: jdbc:h2:C:/Users/Public/h2
+debug:
+  false
+
+server:
+  port: 8080
+
+spring:
+  datasource:
+    #url: jdbc:h2:C:/Users/Public/h2
+    url: jdbc:h2:mem:db
+    #url: jdbc:h2:/Users/waltenesjunior/Documents/maile
+    driverClassName: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update
+  h2:
+    implicitRelativePath: true
+    console:
+      enabled: true
+      path: /h2-console
+      settings:
+        trace: false
+        web-allow-others: false
+
+management:
+  endpoint:
+    shutdown:
+      enabled: true
+  endpoints:
+    web:
+      cors:
+        allowed-origins: http://localhost:4200
+        allowed-methods: POST
+        allowed-headers: "*"
+      exposure:
+        include: "*"
+
+endpoints:
+  shutdown:
+    enable: true
